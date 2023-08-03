@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 3.14)
+project(s3)
+set(CMAKE_C_STANDARD 11)
+
+add_library(s3 s3.c)
+target_link_libraries(s3 m)
+add_executable(s3-repl repl.c)
+target_link_libraries(s3-repl s3)
+add_executable(tests tests.c)
+target_link_libraries(tests s3)
